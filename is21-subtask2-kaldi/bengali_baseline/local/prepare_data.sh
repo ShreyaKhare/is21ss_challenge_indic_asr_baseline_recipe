@@ -16,7 +16,7 @@ if [[ $1 && $2 ]]; then
 
   echo "Preparing data OK."
 else
-  echo "ERROR: Preparing train dev data failed !"
-  echo "You must have forgotten to point to the correct train/dev directories"
-  echo "Usage: ./prepare_data.sh train dev"
+  echo "ERROR: Preparing train test data failed !"
+  echo "You must have forgotten to point to the correct train/test directories"
+  echo "Usage: ./prepare_data.sh train test"
 fi

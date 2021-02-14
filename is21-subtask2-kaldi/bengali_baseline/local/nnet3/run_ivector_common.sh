@@ -12,7 +12,7 @@ set -euo pipefail
 
 stage=0
 train_set=train
-test_sets=dev
+test_sets=test
 gmm=tri4b
 nj=48
 decode_nj=24

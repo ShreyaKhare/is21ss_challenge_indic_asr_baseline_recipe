@@ -16,12 +16,12 @@ Within `is21-subtask2-kaldi`, you shall find two folders:
 
 These two folders are baselines for the two datasets that we provide as part of this subtask. First consider the Hin-Eng task. Within `hindi_baseline/`, you will find a folder called `corpus/` that contains two folders, `data/` and `lang/`. We provide language-specific files (like the lexicon and the list of phones) within `lang/`. 
 
-Please copy the `transcripts/` folder from the Hin-Eng training dataset into `corpus/data/` and rename it to `train/`. This will create files like `corpus/data/train/text`, `corpus/data/train/utt2spk`, etc. Similarly, copy the `transcripts/` folder from the Hin-Eng test dataset into `corpus/data/` and rename it to `dev/`.
+Please copy the `transcripts/` folder from the Hin-Eng training dataset into `corpus/data/` and rename it to `train/`. This will create files like `corpus/data/train/text`, `corpus/data/train/utt2spk`, etc. Similarly, copy the `transcripts/` folder from the Hin-Eng test dataset into `corpus/data/` and rename it to `test/`.
 
 Similarly, the Ben-Eng data can be setup as well. Note that the `hindi_baseline/` and the `bengali_baseline/` recipes are identical except for the language-specific `corpus/lang/` folder.
 
 ### Changing paths in wav.scp
-`wav.scp` in `corpus/data/train/wav.scp` and `corpus/data/dev/wav.scp` contains lines of the following form:
+`wav.scp` in `corpus/data/train/wav.scp` and `corpus/data/test/wav.scp` contains lines of the following form:
 ```
 072Wvm62KcQqRBNa 072Wvm62KcQqRBNa.wav
 0CVZP4TylmCcx9qK 0CVZP4TylmCcx9qK.wav
@@ -32,13 +32,13 @@ The second column should contain the path to the location where the data is stor
 ```bash
 local/gen_wavscp.sh folder < old_wavscp > new_wavscp
 ```
-where `old_wavscp` is say `corpus/data/train/wav.scp`. `new_wavscp` contains the right paths. If it is correctly setup, replace `old_wavscp` with `new_wavscp` i.e. `corpus/data/train/wav.scp` should contain the right paths (same for `corpus/data/dev/wav.scp`). 
+where `old_wavscp` is say `corpus/data/train/wav.scp`. `new_wavscp` contains the right paths. If it is correctly setup, replace `old_wavscp` with `new_wavscp` i.e. `corpus/data/train/wav.scp` should contain the right paths (same for `corpus/data/test/wav.scp`). 
 ## Running the baseline script
 Within any one of the baselines (say `hindi_baseline/`), run:
 ```bash
 ./run.sh
 ```
-to run the baseline. If you want to change the values of the Bash variables defined before the line `. ./utils/parse_options.sh` in the `run.sh` script (like `nj` or `dev_nj` etc.), you can either directly modify those lines within the script or specify the new values via the command line like this:
+to run the baseline. If you want to change the values of the Bash variables defined before the line `. ./utils/parse_options.sh` in the `run.sh` script (like `nj` or `test_nj` etc.), you can either directly modify those lines within the script or specify the new values via the command line like this:
 ```bash
-./run.sh --nj 10 --dev_nj 5
+./run.sh --nj 10 --test_nj 5
 ```

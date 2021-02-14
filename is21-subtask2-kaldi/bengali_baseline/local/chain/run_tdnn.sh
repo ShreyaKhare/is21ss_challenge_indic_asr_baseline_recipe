@@ -10,7 +10,7 @@ stage=0
 nj=48
 decode_nj=24
 train_set=train
-test_sets=dev
+test_sets=test
 gmm=tri4b
 nnet3_affix=
 
