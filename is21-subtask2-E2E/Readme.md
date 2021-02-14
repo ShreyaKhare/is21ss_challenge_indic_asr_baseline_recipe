@@ -25,7 +25,7 @@ Copy utils/ and steps/ directory from espnet/egs
 	    cp  -r  < path to transcripts download folder>/transcripts/test  data/test 
 
 2. Changing paths in wav.scp
-`wav.scp`  in  `data/train/wav.scp`  and  `data/dev/wav.scp`  contains lines of the following form:
+`wav.scp`  in  `data/train/wav.scp`  and  `data/test/wav.scp`  contains lines of the following form:
 
     ```
     072Wvm62KcQqRBNa 072Wvm62KcQqRBNa.wav
