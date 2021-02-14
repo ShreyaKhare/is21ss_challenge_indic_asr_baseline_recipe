@@ -1,7 +1,9 @@
 These are Kaldi baseline scripts for Subtask 2.
 
 ## Software Setup Instructions
-These recipes are built to work with [Kaldi](https://github.com/kaldi-asr/kaldi), an ASR framework. Please install Kaldi by following instructions in the README at https://github.com/kaldi-asr/kaldi.
+These recipes are built to work with [Kaldi](https://github.com/kaldi-asr/kaldi), an ASR framework. Please install Kaldi by following instructions in the README at https://github.com/kaldi-asr/kaldi. Additionally, install SRILM (it is used for language modelling) by following these steps:
+1. Download it from http://www.speech.sri.com/projects/srilm/download.html
+2. Rename the downloaded file to `srilm.tar.gz` (remove the version number) and move it to `kaldi/tools`. Change directory to `kaldi/tools` and run `install_srilm.sh`.
 
 Thereafter, please clone our repository to your local system and navigate to this folder, `is21-subtask2-kaldi/`. Copy this folder to the `egs/` folder in your Kaldi installation. Specifically, your Kaldi installation should look like this: `egs/is21-subtask2-kaldi/`.
 
