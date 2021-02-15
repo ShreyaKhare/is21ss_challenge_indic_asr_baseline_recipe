@@ -1,7 +1,10 @@
 
+
 This is the Kaldi baseline script for Subtask 1 - Multilingual ASR for 6 Indian languages (Gujarati, Hindi, Marathi, Odia, Tamil, Telugu).
 
 The baseline model has been developed on the kaldi version compiled as of __Jan 31, 2021__.
+
+**NOTE**: The Tamil, Telugu and Gujarati data were downsampled to **8kHz** (from 16kHz) before running the baseline recipe. **The baseline model is developed with all the audio data (of the 6 languages) at 8kHz.**
 
 ## Software Setup Instructions
 These recipes are built to work with [Kaldi](https://github.com/kaldi-asr/kaldi), an ASR framework. Please install Kaldi by following instructions in the README at https://github.com/kaldi-asr/kaldi.
@@ -101,7 +104,7 @@ Once the `data/local/dict` folder is ready with the custom lexicon, change the v
 
 ## Other scripts
 
-The following are some scripts that are specific to our corpus, relative to the directory `kaldi/egs/is21-subtask1-kaldi/s5`:
+The following are some additional scripts used in the recipe, relative to the directory `kaldi/egs/is21-subtask1-kaldi/s5`:
 1) `local/check_audio_data_folder.sh` - Checks if the folder containing the dataset is organized as mentioned
 2) `local/train_data_prep.sh` - Prepares the kaldi specific files `wav.scp`, `text`, `utt2spk` for the train data
 3) `local/test_data_prep.sh` - Prepares the kaldi specific files `wav.scp`, `text`, `utt2spk` for the test data
@@ -109,6 +112,8 @@ The following are some scripts that are specific to our corpus, relative to the 
 5) `local/languge_wise_WER.sh` - Computes the language-wise WER and the final average WER
 
 ## Running the baseline script
+
+Before running the `run.sh` script, ensure that all the audio files (of all the 6 languages) are at **8kHz**.
 
 Navigate to `kaldi/egs/is21-subtask1-kaldi/s5` folder, and then run:
 ```bash
