@@ -16,7 +16,7 @@ Within `is21-subtask2-kaldi`, you shall find two folders:
 `is21-subtask2-kaldi/hindi_baseline/` is for the Hin-Eng code-switched corpus.
 `is21-subtask2-kaldi/bengali_baseline/` is for the Ben-Eng code-switched corpus.
 
-These two folders are baselines for the two datasets that we provide as part of this subtask. First consider the Hin-Eng task. Within `hindi_baseline/`, you will find a folder called `corpus/` that contains two folders, `data/` and `lang/`. We provide language-specific files (like the lexicon and the list of phones) within `lang/`. 
+These two folders are baselines for the two datasets that we provide as part of this subtask. First consider the Hin-Eng task. Within `hindi_baseline/`, you will find a folder called `corpus/` that contains two folders, `data/` and `lang/`. We provide language-specific files (like the lexicon and the list of phones) within `lang/`. Note that the lexicon is automatically generated from the training data and is provided as a baseline lexicon. 
 
 Please copy the `transcripts/` folder from the Hin-Eng training dataset into `corpus/data/` and rename it to `train/`. This will create files like `corpus/data/train/text`, `corpus/data/train/utt2spk`, etc. Similarly, copy the `transcripts/` folder from the Hin-Eng test dataset into `corpus/data/` and rename it to `test/`.
 
