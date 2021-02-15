@@ -35,6 +35,7 @@ Copy utils/ and steps/ directory from espnet/egs
     The second column should contain the path to the location where the data is stored. You can use  `local/gen_wavscp.sh`  for this purpose. If the folder location is  `folder`  (without the trailing forward slash) (i.e. files are present at  `folder/072Wvm62KcQqRBNa.wav`,  `folder/0CVZP4TylmCcx9qK.wav`, etc.), then run:
 
 	    local/gen_wavscp.sh folder < old_wavscp > new_wavscp
+        mv new_wavscp old_wavscp
 
 where  `old_wavscp`  is say  `data/train/wav.scp`.  `new_wavscp`  contains the right 	paths. If it is correctly setup, replace  `old_wavscp`  with  `new_wavscp`  i.e.  `data/train/wav.scp`  should contain the right paths (same for  `data/test/wav.scp`).`
 
