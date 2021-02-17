@@ -6,6 +6,13 @@ The baseline model has been developed on the kaldi version compiled as of __Jan 
 
 **NOTE**: The Tamil, Telugu and Gujarati data were downsampled to **8kHz** (from 16kHz) before running the baseline recipe. **The baseline model is developed with all the audio data (of the 6 languages) at 8kHz.**
 
+To downsample an audio file to 8kHz, `ffmpeg` tool can be used as follows:
+
+```bash
+ffmpeg -i source.wav -ar 8000 destination.wav
+```
+where `source.wav` is the source audio file (at 16kHz in this case for Tamil, Telugu and Gujarati), and `destination.wav` is the destination audio file downsampled to 8kHz.
+
 ## Software Setup Instructions
 These recipes are built to work with [Kaldi](https://github.com/kaldi-asr/kaldi), an ASR framework. Please install Kaldi by following instructions in the README at https://github.com/kaldi-asr/kaldi.
 
@@ -115,9 +122,11 @@ The following are some additional scripts used in the recipe, relative to the di
 
 Before running the `run.sh` script, ensure that all the audio files (of all the 6 languages) are at **8kHz**.
 
-Navigate to `kaldi/egs/is21-subtask1-kaldi/s5` folder, and then run:
+To execute the `run.sh` script, navigate to `kaldi/egs/is21-subtask1-kaldi/s5` folder, and then run:
 ```bash
 ./run.sh
 ```
 to run the baseline. If you want to change the values of the bash variable (`nj`) defined before the line 
 `. utils/parse_options.sh` in the `run.sh` script, you can directly modify its value within the script.
+
+The baseline results have been included for reference along with the recipe and can be found at  `is21-subtask1-kaldi/s5/Multilingual_WER.txt`
