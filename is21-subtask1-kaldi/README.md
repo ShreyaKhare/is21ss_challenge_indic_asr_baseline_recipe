@@ -27,10 +27,22 @@ This completes the software setup.
 The following is to be completed before executing the `run.sh` script:
 1. Audio data directory organization
 2. Installing IRSTLM
-3. Lexicon and phone set
 
 ### Audio data directory organization
-The dataset of the 6 languages associated with subtask 1 (Gujarati, Hindi, Marathi, Odia, Tamil, Telugu) must be organized in a single folder in a particular format. If the directory in which all the data is stored is called `IS21_subtask_1_data`, then the structure of the directory should be as follows (__NOTE__: names of directories and files are case-sensitive and should exactly match):
+
+The dataset of the 6 languages associated with subtask 1 (Gujarati, Hindi, Marathi, Odia, Tamil, Telugu) must be organized in a single folder in a particular format. In the `run.sh` script, provide the full path to the audio data folder containing the data of all the 6 languages, organized as mentioned below. For example, if the folder containing all the data is `IS21_subtask_1_data`, and say the path to this folder is `/home/user/Downloads/IS21_subtask_1_data`, then in `run.sh`, 
+ 
+ replace:
+```bash
+path_to_data=''
+```
+with 
+```bash
+path_to_data='/home/user/Downloads/IS21_subtask_1_data'
+```
+
+ The structure of the `IS21_subtask_1_data` directory (containing all the data) should be as follows:
+ (__NOTE__: names of directories and files are case-sensitive and should exactly match):
 ```bash
 IS21_subtask_1_data
 ├── Gujarati
@@ -80,33 +92,18 @@ IS21_subtask_1_data
 ```
 The `.wav` files should be present in the directories named `audio` for each language (in both `train` and `test`). The above tree structure can be verified by using the command `tree -L 3 IS21_subtask_1_data` on a Linux terminal.
 
-In the `run.sh` script, provide the full path to the audio data folder containing the data of all the 6 languages, organized as mentioned above. For example, if the folder containing the data is `IS21_subtask_1_data`, and say the path to this folder is `/home/user/Downloads/IS21_subtask_1_data`, then in `run.sh`, 
- 
- replace:
+To check if the data folder has been organized correctly, from `kaldi/egs/is21-subtask1-kaldi/s5`, run:
 ```bash
-path_to_data=''
+local/check_audio_data_folder.sh path_to_data
 ```
-with 
-```bash
-path_to_data='/home/user/Downloads/IS21_subtask_1_data'
-```
+where `path_to_data` (set by the user) is the path to the folder containing all the data. It is useful to note that this check is performed in the `run.sh` script.
+
 ### Installing IRSTLM
 
 The language model is created using IRSTLM. To install the IRSTLM package, navigate to `kaldi/tools`, and run:
 ```bash
 extras/install_irstlm.sh
 ```
-
-### Lexicon and Phone set
-
-The lexicon and phone set used to develop the baseline model is present in the `conf/dict` folder. If you want to use your own lexicon, create a `dict` folder as present in `conf` with the following files and copy the `dict` folder to `data/local`: `lexicon.txt`, `nonsilence_phones.txt`, `silence_phones.txt`, `optional_silence.txt`.
-
-If `data/local` is not present, it can be created with the following command on Linux from the `kaldi/egs/is21-subtask1-kaldi/s5` folder:
-
-```bash
-mkdir -p data/local
-```
-Once the `data/local/dict` folder is ready with the custom lexicon, change the value of the variable `use_default_lexicon` in `run.sh` to "no"  (the default value is "yes", which uses the `conf/dict` folder).
 
 
 ## Other scripts
