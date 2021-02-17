@@ -123,7 +123,6 @@ To execute the `run.sh` script, navigate to `kaldi/egs/is21-subtask1-kaldi/s5` f
 ```bash
 ./run.sh
 ```
-to run the baseline. If you want to change the values of the bash variable (`nj`) defined before the line 
-`. utils/parse_options.sh` in the `run.sh` script, you can directly modify its value within the script.
+to run the baseline.
 
 The baseline results have been included for reference along with the recipe and can be found at  `is21-subtask1-kaldi/s5/Multilingual_WER.txt`
